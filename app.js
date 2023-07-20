@@ -22,15 +22,31 @@ app.use(express.static("public"));
 app.get("/", function(req, res) {
   res.render("home", { content: homeStartingContent, blogs: posts })
 })
+
 app.get("/about", function (req, res) {
   res.render("about", {content: aboutContent} )
 })
+
 app.get("/contact", function (req, res) {
   res.render("contact", {content: contactContent} )
 })
 
 app.get("/compose", function (req, res) {
   res.render("compose");
+})
+
+app.get("/posts/:title", function (req, res) {
+  let requestedTitle = req.params.title;
+
+  console.log("requestedTitle", requestedTitle);
+  console.log("posts[0].title", posts[0].title);
+
+  for (let i = 0; i < posts.length; i++) {
+    if (requestedTitle === posts[i].title) {
+      console.log("Match found!");
+    }
+  }
+
 })
 
 app.post("/compose", function (req, res) {
