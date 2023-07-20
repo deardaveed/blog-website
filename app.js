@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-app.get("/", function (req, res) {
+app.get("/", function(req, res) {
   res.render("home", {content: homeStartingContent} )
 })
 app.get("/about", function (req, res) {
@@ -25,6 +25,14 @@ app.get("/about", function (req, res) {
 })
 app.get("/contact", function (req, res) {
   res.render("contact", {content: contactContent} )
+})
+
+app.get("/compose", function (req, res) {
+  res.render("compose");
+})
+
+app.post("/compose", function (req, res) {
+  console.log(req.body.newBlogPost);
 })
 
 app.listen(process.env.PORT || 3000, function() {
