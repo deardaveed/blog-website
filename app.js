@@ -20,10 +20,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", function(req, res) {
-  res.render("home", { content: homeStartingContent })
-
-  console.log(posts);
-
+  res.render("home", { content: homeStartingContent, blogs: posts })
 })
 app.get("/about", function (req, res) {
   res.render("about", {content: aboutContent} )
