@@ -1,10 +1,25 @@
 <%- include("partials/header") %>
 <h1>Compose</h1>
 
-
 <form class="" action="/compose" method="post">
-	<input type="text" name="newBlogPost" placeholder="">
-	<button type="submit" name="button">Publish</button>
+	<div class="form-group">
+		<div class="mb-3">
+			<label>Title</label>
+			<input type=" text" class="form-control" name="newBlogTitle">
+		</div>
+		<div class="mb-3">
+			<label>Post</label>
+			<textarea class=" form-control" rows="5" name="newBlogPost"></textarea>
+		</div>
+	</div>
+	<button class="btn btn-primary" type="submit" name="button">
+		Publish
+
 </form>
 
 <%- include("partials/footer") %>
+
+
+<% // for (let i = 0; i < posts.length; i++) %>
+<%  //   {%>
+<%  //   }%>
